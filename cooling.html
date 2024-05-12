@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cooling Troubleshooting</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="cooling-page">
+    <div class="container">
+        <h1>Cooling Troubleshooting</h1>
+        <!-- Add cooling troubleshooting content here -->
+        <p>Unit Model: <span id="unitModel"></span></p>
+        <p>Troubleshooting Type: <span id="troubleshootingType"></span></p>
+
+        <button onclick="openFormModal()">Open Form Modal</button>
+
+        <!-- Form Modal -->
+        <div id="formModal" class="modal">
+            <div class="modal-content-cool">
+                <span class="close" onclick="closeFormModal()">&times;</span>
+                <h2>Enter Cooling System Data</h2>
+                <form id="coolingForm">
+                    <label for="dischargePressure">Discharge Pressure:</label>
+                    <input type="number" id="dischargePressure" name="dischargePressure" required />
+
+                    <label for="suctionPressure">Suction Pressure:</label>
+                    <input type="number" id="suctionPressure" name="suctionPressure" required />
+
+                    <label for="liquidLinePressure">Liquid Line Pressure:</label>
+                    <input type="number" id="liquidLinePressure" name="liquidLinePressure" required />
+
+                    <label for="dischargeTemperature">Discharge Temperature:</label>
+                    <input type="number" id="dischargeTemperature" name="dischargeTemperature" required />
+
+                    <label for="suctionLineTemperature">Suction Line Temperature:</label>
+                    <input type="number" id="suctionLineTemperature" name="suctionLineTemperature" required />
+
+                    <label for="liquidLineTemperature">Liquid Line Temperature:</label>
+                    <input type="number" id="liquidLineTemperature" name="liquidLineTemperature" required />
+
+                    <label for="blowerAmps">Blower Amps:</label>
+                    <input type="number" id="blowerAmps" name="blowerAmps" required />
+
+                    <label for="condenserFanAmps">Condenser Fan Amps:</label>
+                    <input type="number" id="condenserFanAmps" name="condenserFanAmps" required />
+
+                    <label for="compressorAmps">Compressor Amps:</label>
+                    <input type="number" id="compressorAmps" name="compressorAmps" required />
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Add specific cooling troubleshooting steps here -->
+    <!-- Add a container for the comparison result -->
+    <div id="comparisonResult"></div>
+
+    <script src="./script.js"></script>
+    <script src="./cooling.js"></script>
+    <script>
+        // Get parameters from URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var unitModel = urlParams.get("model");
+        var troubleshootingType = urlParams.get("type");
+
+        // Display parameters in the page
+        document.getElementById("unitModel").innerText = unitModel;
+        document.getElementById("troubleshootingType").innerText = troubleshootingType;
+
+        // Function to open the form modal
+        function openFormModal() {
+            document.getElementById("formModal").style.display = "block";
+        }
+
+        // Function to close the form modal
+        function closeFormModal() {
+            document.getElementById("formModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pocket HVAC Technician</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="index-page">
+    <div class="background-image"></div>
+    <div class="container">
+        <h1 class="title">The Pocket HVAC Technician</h1>
+        <div class="select-box">
+            <label for="unitModel">Select Unit Model:</label>
+            <select id="unitModel" class="select-unit">
+                <option value="SACP49A-HS">SACP49A-HS</option>
+                <option value="SACP41A-HS">SACP41A-HS</option>
+                <option value="SACP87A-HS">SACP87A-HS</option>
+                <option value="SACP81A-HS">SACP81A-HS</option>
+                <!-- Add more unit models as needed -->
+            </select>
+        </div>
+
+        <div class="select-box">
+            <label for="troubleshootingType">Select Troubleshooting Type:</label>
+            <select id="troubleshootingType" class="select-type">
+                <option value="heating">Heating</option>
+                <option value="cooling">Cooling</option>
+            </select>
+        </div>
+
+        <button onclick="startTroubleshooting()" class="start-btn">Start Troubleshooting</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
+

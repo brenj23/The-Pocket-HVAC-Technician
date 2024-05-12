@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heating Troubleshooting</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="heating-page">
+    <div class="container">
+      <h1>Heating Troubleshooting</h1>
+      <!-- Add heating troubleshooting content here -->
+      <p>Unit Model: <span id="unitModel"></span></p>
+      <p>Troubleshooting Type: <span id="troubleshootingType"></span></p>
+
+      <button onclick="openFormModal()">Open Form Modal</button>
+
+        <!-- Form Modal -->
+        <div id="formModal" class="modal">
+            <div class="modal-content-heat">
+                <span class="close" onclick="closeFormModal()">&times;</span>
+                <h2>Enter Heating Data Here</h2>
+                <form id="heatingForm">
+                    <label for="voltage">Voltage (V):</label>
+                    <input type="number" id="voltage" required /><br />
+                    <label for="current">Current (A):</label>
+                    <input type="number" id="current" required /><br />
+                    <label for="temperature">Temperature (°F):</label>
+                    <input type="number" id="temperature" required /><br />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+      </div>
+
+      <!-- Display electric heat troubleshooting comparison result -->
+      <div id="heatComparisonResult"></div>
+
+      <!-- Add specific heating troubleshooting steps here -->
+    </div>
+    <script src="./script.js"></script>
+    <script src="./heating.js"></script>
+    <script>
+      // Get parameters from URL
+      var urlParams = new URLSearchParams(window.location.search);
+      var unitModel = urlParams.get("model");
+      var troubleshootingType = urlParams.get("type");
+
+      // Display parameters in the page
+      document.getElementById("unitModel").innerText = unitModel;
+      document.getElementById("troubleshootingType").innerText =
+        troubleshootingType;
+    </script>
+  </body>
+</html>
